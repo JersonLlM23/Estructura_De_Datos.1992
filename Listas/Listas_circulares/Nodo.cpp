@@ -1,29 +1,42 @@
+/***********************************************************************
+ * Module:  Nodo.cpp
+ * Author:  Maycol Celi,Erika Guayanay, Jerson Llumiquinga M.
+ * Date: 25/11/2024
+ * University: Universidad de las Fuerzas Armadas - ESPE
+ ***********************************************************************/
+
 #include "Nodo.h"
 
-using namespace std;
-
-template<typename T>
-Nodo<T>::Nodo(T _dato) {
-    dato = _dato;
-    siguiente = nullptr;  // El siguiente por defecto es nullptr, pero será actualizado al formar el ciclo
+Nodo::Nodo(string cedula, string nombre, string apellido) {
+    this->cedula = cedula;
+    this->nombre = nombre;
+    this->apellido = apellido;
+    this->siguiente = nullptr;
 }
 
-template<typename T>
-inline void Nodo<T>::setDato(T _dato) {
-    dato = _dato;
+string Nodo::getCedula() {
+    return cedula;
 }
 
-template<typename T>
-T Nodo<T>::getDato() {
-    return dato;
+string& Nodo::getNombre() {
+    return nombre;
 }
 
-template<typename T>
-void Nodo<T>::setSiguiente(Nodo* _siguiente) {
-    siguiente = _siguiente;
+string& Nodo::getApellido() {
+    return apellido;
 }
 
-template<typename T>
-Nodo<T>* Nodo<T>::getSiguiente() {
+Nodo* Nodo::getSiguiente() {
     return siguiente;
+}
+
+void Nodo::setSiguiente(Nodo* siguiente) {
+    this->siguiente = siguiente;
+}
+void Nodo::setNombre(string nombre) {
+    this->nombre = nombre;
+}
+
+void Nodo::setApellido(string apellido) {
+    this->apellido = apellido;
 }
