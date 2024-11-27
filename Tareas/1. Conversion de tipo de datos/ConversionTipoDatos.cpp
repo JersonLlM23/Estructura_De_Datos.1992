@@ -3,8 +3,9 @@
  * Author:  Jerson Llumiquinga M.
  * Date: 08/11/2024
  * Purpose: Conversion de tipo de datos
- * University: Universidad de las Fuerzas Armadas - "ESPE"
+ * University: UNIVERSIDAD DE LAS FUERZAS ARMADAS - "ESPE"
  ***********************************************************************/
+
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,16 +28,15 @@ char *ingresoDatos(int tipo) {
     try {
         while ((c = getch()) != 13) {
             validacion = true;
-
             switch (tipo) {
                 case 1:
                     if (c >= '0' && c <= '9') {
                         cad[i++] = c;
                         cout << c;
-                    } else {
-                        cout << "\nSolo ingresa numeros...";
+                        } else {
+                        cout << "\nPor favor, ingrese solo numeros";
                         validacion = false;
-                    }
+                        }
                     break;
 
                 case 2:
@@ -46,9 +46,9 @@ char *ingresoDatos(int tipo) {
                         } else {
                             cad[i++] = c;
                             cout << c;
-                        }
+                            }
                     } else {
-                        cout << "\nSolo ingresa numeros y maximo un punto...";
+                        cout << "\nPor favor, solo ingrese numeros y un punto como maximo";
                         validacion = false;
                     }
                     break;
@@ -58,7 +58,7 @@ char *ingresoDatos(int tipo) {
                         cad[i++] = c;
                         cout << c;
                     } else {
-                        cout << "\nSolo ingresa texto...";
+                        cout << "\nPor favor, solo ingresa texto";
                         validacion = false;
                     }
                     break;

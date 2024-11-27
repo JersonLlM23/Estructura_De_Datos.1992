@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Users/JERSON/Documents/GitHub/Estructura_De_Datos.1992/Listas/Listas_simples",
+      "program": "c:/Users/JERSON/Documents/GitHub/Estructura_De_Datos.1992/Listas/Listas_simples/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1732509222 source:c:\users\jerson\documents\github\estructura_de_datos.1992\tareas\4. matriz\mainmatriz.cpp
+	<iostream>
+	"Matriz.cpp"
+
+1732509222 c:\users\jerson\documents\github\estructura_de_datos.1992\tareas\4. matriz\matriz.cpp
+	<iostream>
+	"Matriz.h"
+	<stdlib.h>
+	<time.h>
+
+1732509222 c:\users\jerson\documents\github\estructura_de_datos.1992\tareas\4. matriz\matriz.h
+
+1732509222 source:c:\users\jerson\documents\github\estructura_de_datos.1992\tareas\4. matriz\matriz.cpp
+	<iostream>
+	"Matriz.h"
+	<stdlib.h>
+	<time.h>
+

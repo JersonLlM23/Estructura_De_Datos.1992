@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1732678473 source:c:\users\jerson\documents\codeblocks\tarea1_conversiontd\conversiontipodatos.cpp
+	<conio.h>
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<string.h>
+	<stdexcept>
+
+1732648058 source:c:\users\jerson\documents\codeblocks\tarea1_conversiontd\untitled1.c
+
