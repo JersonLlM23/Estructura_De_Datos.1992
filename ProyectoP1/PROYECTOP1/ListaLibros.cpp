@@ -62,27 +62,41 @@ NodoLibros* ListaLibros::buscar(string isbn) {
     return nullptr;
 }
 
-
 bool ListaLibros::eliminar(string isbn) {
-    NodoLibros* encontrado = buscar(isbn);
-    if (!encontrado) {
-        cout << "Error: Libro no encontrado.\n";
+    // Verificar si la lista está vacía
+    if (!cabeza) {
+        cout << "Error: La lista de libros está vacía.\n";
         return false;
     }
 
+    NodoLibros* encontrado = buscar(isbn); // Buscar el nodo a eliminar
+    if (!encontrado) {
+        cout << "Error: Libro con ISBN " << isbn << " no encontrado.\n";
+        return false;
+    }
+
+    // Caso: Único nodo en la lista
     if (encontrado->getSiguiente() == encontrado) {
         cabeza = nullptr;
     } else {
+        // Caso: Múltiples nodos en la lista
         NodoLibros* anterior = encontrado->getAnterior();
         NodoLibros* siguiente = encontrado->getSiguiente();
+
         anterior->setSiguiente(siguiente);
         siguiente->setAnterior(anterior);
+
+        // Actualizar la cabeza si es necesario
         if (cabeza == encontrado) {
             cabeza = siguiente;
         }
     }
+
+    // Eliminar el nodo
+    cout << "Eliminando libro: " << encontrado->getTitulo() << ", ISBN: " << encontrado->getIsbn() << "\n";
     delete encontrado;
-    guardarEnArchivoJSON(); // Usar JSON para guardar cambios
+
+    guardarEnArchivoJSON(); // Actualizar el archivo JSON
     return true;
 }
 
