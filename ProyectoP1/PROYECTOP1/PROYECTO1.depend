@@ -1,0 +1,93 @@
+# depslib dependency file v1.0
+1733466054 source:c:\users\jerson\documents\codeblocks\proyecto p1\listaautores.cpp
+	"ListaAutores.h"
+	"Validaciones.h"
+	<iostream>
+
+1733466054 c:\users\jerson\documents\codeblocks\proyecto p1\listaautores.h
+	"NodoAutores.h"
+	<string>
+	<fstream>
+
+1733466054 c:\users\jerson\documents\codeblocks\proyecto p1\nodoautores.h
+	<string>
+
+1733466054 c:\users\jerson\documents\codeblocks\proyecto p1\validaciones.h
+	<string>
+
+1733466054 source:c:\users\jerson\documents\codeblocks\proyecto p1\listalibros.cpp
+	"ListaLibros.h"
+	<iostream>
+
+1733466054 c:\users\jerson\documents\codeblocks\proyecto p1\listalibros.h
+	"NodoLibros.h"
+	"ListaAutores.h"
+	<string>
+	<fstream>
+
+1733466054 c:\users\jerson\documents\codeblocks\proyecto p1\nodolibros.h
+	<string>
+
+1733466236 source:c:\users\jerson\documents\codeblocks\proyecto p1\main.cpp
+	"ListaAutores.h"
+	"ListaLibros.h"
+	"Validaciones.h"
+	<iostream>
+	<cstdlib>
+
+1733466054 source:c:\users\jerson\documents\codeblocks\proyecto p1\nodoautores.cpp
+	"NodoAutores.h"
+
+1733466054 source:c:\users\jerson\documents\codeblocks\proyecto p1\nodolibros.cpp
+	"NodoLibros.h"
+
+1733466054 source:c:\users\jerson\documents\codeblocks\proyecto p1\validaciones.cpp
+	"Validaciones.h"
+	<regex>
+
+1733466054 source:c:\users\jerson\documents\codeblocks\proyectop1\listaautores.cpp
+	"ListaAutores.h"
+	"Validaciones.h"
+	<iostream>
+
+1733466054 c:\users\jerson\documents\codeblocks\proyectop1\listaautores.h
+	"NodoAutores.h"
+	<string>
+	<fstream>
+
+1733466054 c:\users\jerson\documents\codeblocks\proyectop1\nodoautores.h
+	<string>
+
+1733466054 c:\users\jerson\documents\codeblocks\proyectop1\validaciones.h
+	<string>
+
+1733466054 source:c:\users\jerson\documents\codeblocks\proyectop1\listalibros.cpp
+	"ListaLibros.h"
+	<iostream>
+
+1733466054 c:\users\jerson\documents\codeblocks\proyectop1\listalibros.h
+	"NodoLibros.h"
+	"ListaAutores.h"
+	<string>
+	<fstream>
+
+1733466054 c:\users\jerson\documents\codeblocks\proyectop1\nodolibros.h
+	<string>
+
+1733466236 source:c:\users\jerson\documents\codeblocks\proyectop1\main.cpp
+	"ListaAutores.h"
+	"ListaLibros.h"
+	"Validaciones.h"
+	<iostream>
+	<cstdlib>
+
+1733466054 source:c:\users\jerson\documents\codeblocks\proyectop1\nodoautores.cpp
+	"NodoAutores.h"
+
+1733466054 source:c:\users\jerson\documents\codeblocks\proyectop1\nodolibros.cpp
+	"NodoLibros.h"
+
+1733466054 source:c:\users\jerson\documents\codeblocks\proyectop1\validaciones.cpp
+	"Validaciones.h"
+	<regex>
+
