@@ -2,6 +2,9 @@
 #include "NodoAutores.h"
 #include <string>
 #include <fstream>
+#include "json.hpp"
+
+using json = nlohmann::json;
 using namespace std;
 
 class ListaAutores {
@@ -16,6 +19,8 @@ public:
     NodoAutores* buscar(string cedula);
     bool eliminar(string cedula);
     void mostrar();
-    void cargarDesdeArchivo();
-    void guardarEnArchivo();
+
+    // Nuevas funciones para JSON
+    void cargarDesdeArchivoJSON(); // Cargar datos desde un archivo JSON
+    void guardarEnArchivoJSON();   // Guardar datos en un archivo JSON
 };

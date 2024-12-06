@@ -8,11 +8,11 @@ using namespace std;
 
 // Función para limpiar la pantalla
 void limpiarPantalla() {
-    #ifdef _WIN32
-        system("cls"); // Para Windows
-    #else
-        system("clear"); // Para Linux y macOS
-    #endif
+#ifdef _WIN32
+    system("cls"); // Para Windows
+#else
+    system("clear"); // Para Linux y macOS
+#endif
 }
 
 // Función para pausar el sistema y esperar una tecla
@@ -40,15 +40,15 @@ int main() {
     ListaAutores listaAutores;
     ListaLibros listaLibros;
 
-    listaAutores.cargarDesdeArchivo();
-    listaLibros.cargarDesdeArchivo();
+    // Cargar datos desde archivos JSON
+    listaAutores.cargarDesdeArchivoJSON();
+    listaLibros.cargarDesdeArchivoJSON();
 
     int opcion;
-    
-    // Imprimir el menú solo una vez al inicio
-    imprimirMenu();
 
     do {
+        limpiarPantalla();
+        imprimirMenu();
         cin >> opcion;
 
         // Procesar la opción seleccionada
@@ -102,7 +102,8 @@ int main() {
             if (autor.empty()) break;
 
             cout << "Ingrese título: ";
-            cin >> titulo;
+            cin.ignore(); // Limpiar el buffer
+            getline(cin, titulo);
             cout << "Ingrese ISBN: ";
             cin >> isbn;
             cout << "Ingrese género: ";
@@ -147,13 +148,13 @@ int main() {
         }
 
         // Pausar después de procesar la opción
-        pausarSistema();
-
-        // Limpiar la pantalla y volver a imprimir el menú
-        limpiarPantalla();
-        imprimirMenu();
+        if (opcion != 9) pausarSistema();
 
     } while (opcion != 9);
+
+    // Guardar datos antes de salir
+    listaAutores.guardarEnArchivoJSON();
+    listaLibros.guardarEnArchivoJSON();
 
     return 0;
 }

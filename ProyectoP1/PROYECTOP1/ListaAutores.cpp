@@ -1,6 +1,9 @@
 #include "ListaAutores.h"
 #include "Validaciones.h"
 #include <iostream>
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 ListaAutores::ListaAutores() : cabeza(nullptr) {}
 
@@ -34,7 +37,7 @@ bool ListaAutores::insertar(string cedula, string nombre, string apellido, strin
         nuevo->setSiguiente(cabeza);
         cabeza->setAnterior(nuevo);
     }
-    guardarEnArchivo();
+    guardarEnArchivoJSON(); // Usar JSON para guardar cambios
     return true;
 }
 
@@ -70,7 +73,7 @@ bool ListaAutores::eliminar(string cedula) {
         }
     }
     delete encontrado;
-    guardarEnArchivo();
+    guardarEnArchivoJSON(); // Usar JSON para guardar cambios
     return true;
 }
 
@@ -90,30 +93,55 @@ void ListaAutores::mostrar() {
     } while (actual != cabeza);
 }
 
-void ListaAutores::cargarDesdeArchivo() {
-    ifstream archivo("autores.txt");
-    if (!archivo.is_open()) return;
-
-    string cedula, nombre, apellido, fechaPublicacion;
-    while (archivo >> cedula >> nombre >> apellido >> fechaPublicacion) {
-        insertar(cedula, nombre, apellido, fechaPublicacion);
+void ListaAutores::guardarEnArchivoJSON() {
+    if (!cabeza) {
+        cout << "La lista de autores está vacía. Nada que guardar.\n";
+        return;
     }
-    archivo.close();
-}
 
-void ListaAutores::guardarEnArchivo() {
-    ofstream archivo("autores.txt", ios::trunc);
-    if (!archivo.is_open()) return;
+    json jAutores = json::array();
 
     NodoAutores* actual = cabeza;
-    if (cabeza) {
-        do {
-            archivo << actual->getCedula() << " "
-                    << actual->getNombre() << " "
-                    << actual->getApellido() << " "
-                    << actual->getFechaPublicacion() << "\n";
-            actual = actual->getSiguiente();
-        } while (actual != cabeza);
+    do {
+        jAutores.push_back({
+            {"cedula", actual->getCedula()},
+            {"nombre", actual->getNombre()},
+            {"apellido", actual->getApellido()},
+            {"fechaPublicacion", actual->getFechaPublicacion()}
+        });
+        actual = actual->getSiguiente();
+    } while (actual != cabeza);
+
+    std::ofstream archivo("autores.json");
+    if (archivo.is_open()) {
+        archivo << jAutores.dump(4);
+        archivo.close();
+        cout << "Datos guardados correctamente en 'autores.json'.\n";
+    } else {
+        cout << "Error: No se pudo abrir el archivo para guardar datos.\n";
     }
+}
+
+void ListaAutores::cargarDesdeArchivoJSON() {
+    std::ifstream archivo("autores.json");
+    if (!archivo.is_open()) {
+        cout << "Error: No se pudo abrir el archivo para cargar datos.\n";
+        return;
+    }
+
+    json jAutores;
+    archivo >> jAutores;
     archivo.close();
+
+    for (const auto& autor : jAutores) {
+        string cedula = autor["cedula"];
+        string nombre = autor["nombre"];
+        string apellido = autor["apellido"];
+        string fechaPublicacion = autor["fechaPublicacion"];
+
+        cout << "Cargando autor: " << cedula << ", " << nombre << ", " << apellido << "\n";
+        insertar(cedula, nombre, apellido, fechaPublicacion);
+    }
+
+    cout << "Datos cargados correctamente desde 'autores.json'.\n";
 }
