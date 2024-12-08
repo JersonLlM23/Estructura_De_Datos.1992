@@ -1,0 +1,38 @@
+[
+    {
+        "anioLanzamiento": "\"08/02/2003\"",
+        "autor": "xavier gomez",
+        "calificacion": 4.0,
+        "genero": "me",
+        "isbn": "189",
+        "precio": 6.0,
+        "titulo": "ma"
+    },
+    {
+        "anioLanzamiento": "\"08/08/2005\"",
+        "autor": "xavier gomez",
+        "calificacion": 4.0,
+        "genero": "sc",
+        "isbn": "1963",
+        "precio": 6.0,
+        "titulo": "asd"
+    },
+    {
+        "anioLanzamiento": "01/27/2018",
+        "autor": "Jerson Llumiquinga",
+        "calificacion": 10.0,
+        "genero": "Romance",
+        "isbn": "03-02-03",
+        "precio": 59.9900016784668,
+        "titulo": "eep calm and love Maison"
+    },
+    {
+        "anioLanzamiento": "12/22/2222",
+        "autor": "Cynthia Llumiquinga",
+        "calificacion": 4.0,
+        "genero": "WTF",
+        "isbn": "09-09-09",
+        "precio": 99.0,
+        "titulo": " Bibi Chola"
+    }
+]
