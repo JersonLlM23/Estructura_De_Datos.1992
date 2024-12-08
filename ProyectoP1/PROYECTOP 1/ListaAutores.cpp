@@ -1,6 +1,7 @@
 #include "ListaAutores.h"
 #include "Validaciones.h"
 #include <iostream>
+#include <chrono> // Necesario para trabajar con std::chrono
 #include "json.hpp"
 #include "BackupManager.h" // Asegúrate de incluir esto
 
@@ -148,9 +149,59 @@ void ListaAutores::cargarDesdeArchivoJSON() {
 }
 
 void ListaAutores::crearBackup() {
-    BackupManager::crearBackupConFecha("BackupAutores", "autores.json");
+    // Generar nombre con fecha y hora
+    auto now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    tm localTime;
+    localtime_s(&localTime, &now); // Convertir a hora local
+
+    char buffer[64];
+    strftime(buffer, sizeof(buffer), "BackupAutores/autores-%Y-%m-%d-%H-%M-%S.json", &localTime);
+
+    // Guardar backup
+    ofstream archivo(buffer);
+    if (!archivo.is_open()) {
+        cout << "Error: No se pudo crear el backup en la carpeta BackupAutores.\n";
+        return;
+    }
+
+    json jAutores = json::array();
+    NodoAutores* actual = cabeza;
+    do {
+        jAutores.push_back({
+            {"cedula", actual->getCedula()},
+            {"nombre", actual->getNombre()},
+            {"apellido", actual->getApellido()},
+            {"fechaPublicacion", actual->getFechaPublicacion()}
+        });
+        actual = actual->getSiguiente();
+    } while (actual != cabeza);
+
+    archivo << jAutores.dump(4);
+    archivo.close();
+    cout << "Backup creado exitosamente: " << buffer << "\n";
 }
 
-void ListaAutores::restaurarBackup(const string& archivoBackup) {
-    BackupManager::restaurarBackup("BackupAutores", archivoBackup, "autores.json");
+void ListaAutores::restaurarBackup(const string& nombreArchivo) {
+    ifstream archivo("BackupAutores/" + nombreArchivo); // Leer desde la carpeta BackupAutores
+    if (!archivo.is_open()) {
+        cout << "Error: No se pudo abrir el archivo de backup " << nombreArchivo << ".\n";
+        return;
+    }
+
+    json jAutores;
+    archivo >> jAutores;
+    archivo.close();
+
+    cabeza = nullptr; // Reiniciar la lista actual
+
+    for (const auto& autor : jAutores) {
+        string cedula = autor["cedula"];
+        string nombre = autor["nombre"];
+        string apellido = autor["apellido"];
+        string fechaPublicacion = autor["fechaPublicacion"];
+
+        insertar(cedula, nombre, apellido, fechaPublicacion);
+    }
+
+    cout << "Backup restaurado correctamente desde " << nombreArchivo << ".\n";
 }

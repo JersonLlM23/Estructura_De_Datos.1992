@@ -28,7 +28,7 @@ public:
 
     // Funciones para Backup
     void crearBackup(); // Crear un backup con fecha y hora
-    void restaurarBackup(const string& archivoBackup); // Restaurar desde un backup
+    void restaurarBackup(const string& nombreArchivo); // Restaurar desde un backup
 
     // Relación con autores
     string seleccionarAutor(ListaAutores& listaAutores);

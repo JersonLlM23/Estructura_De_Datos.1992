@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <hpdf.h>  // Asegúrate de tener instalada la librería Haru PDF
+  // Asegúrate de tener instalada la librería Haru PDF
 
 class GenerarPDFLibros {
 public:

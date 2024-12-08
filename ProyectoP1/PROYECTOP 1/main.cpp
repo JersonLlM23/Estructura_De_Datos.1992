@@ -8,28 +8,28 @@
 #include <limits>
 #include <hpdf.h>
 
-
-
 // Men� para manejar las opciones de "Autores"
 void menuAutores(ListaAutores& listaAutores) {
     int opcion;
     do {
         system("pause");
         system("cls");
-        cout << "*****************************************************************************";
-        cout << "\n\t\t\t\t MENU AUTORES \t\t\t\t\n";
-         cout << "*****************************************************************************\n";
+        cout << "*****************************************************************************\n";
+        cout << "\t\t\t\t MENU AUTORES \t\t\t\t\n";
+        cout << "*****************************************************************************\n";
         cout << "\t1. Insertar Autor\n";
         cout << "\t2. Buscar Autor\n";
         cout << "\t3. Eliminar Autor\n";
         cout << "\t4. Mostrar Autores\n";
         cout << "\t5. Generar PDF Autores\n";
-        cout << "\t6. Volver al menu principal\n";
-        cout << "\tIngrese una opcion: ";
+        cout << "\t6. Crear Backup de Autores\n"; // Nueva opción
+        cout << "\t7. Restaurar Backup de Autores\n"; // Nueva opción
+        cout << "\t8. Volver al menú principal\n";
+        cout << "\tIngrese una opción: ";
         ingresarOpcionMenu(opcion);
 
-        if (!validarOpcionMenu(opcion, 1, 5)) {
-            cout << "Opcion no valida. Intente de nuevo.\n";
+        if (!validarOpcionMenu(opcion, 1, 8)) {
+            cout << "Opción no válida. Intente de nuevo.\n";
             continue;
         }
 
@@ -118,20 +118,18 @@ void menuAutores(ListaAutores& listaAutores) {
             generador.generarPDF("autores_lista.pdf");
             }
             break;
-        case 6: {
-                listaAutores.crearBackup();
+         case 6:
+                listaAutores.crearBackup(); // Crear backup
+                break;
+            case 7: {
+                string nombreBackup;
+                cout << "Ingrese el nombre del archivo de backup: ";
+                cin >> nombreBackup;
+                listaAutores.restaurarBackup(nombreBackup); // Restaurar backup
                 break;
             }
-        case 7: {
-                cout << "Ingrese el nombre del archivo de backup (en 'BackupAutores'): ";
-                string archivoBackup;
-                cin >> archivoBackup;
-                listaAutores.restaurarBackup(archivoBackup);
-                break;
-            }
-        case 8:
+            case 8:
                 cout << "Volviendo al menú principal...\n";
-                system("pause");
                 break;
         }
     } while (opcion != 8);
@@ -143,20 +141,22 @@ void menuLibros(ListaLibros& listaLibros, ListaAutores& listaAutores) {
     do {
         system("pause");
         system("cls");
-       cout << "*****************************************************************************";
-        cout << "\n\t\t\t\t MENU LIBROS \t\t\t\t\n";
-         cout << "*****************************************************************************\n";
+        cout << "*****************************************************************************\n";
+        cout << "\t\t\t\t MENU LIBROS \t\t\t\t\n";
+        cout << "*****************************************************************************\n";
         cout << "\t1. Insertar Libro\n";
         cout << "\t2. Buscar Libro\n";
         cout << "\t3. Eliminar Libro\n";
         cout << "\t4. Mostrar Libros\n";
         cout << "\t5. Generar PDF de Libros\n";
-        cout << "\t6. Volver al menu principal\n";
-        cout << "\tIngrese una opcion: ";
+        cout << "\t6. Crear Backup de Libros\n"; // Nueva opción
+        cout << "\t7. Restaurar Backup de Libros\n"; // Nueva opción
+        cout << "\t8. Volver al menú principal\n";
+        cout << "\tIngrese una opción: ";
         ingresarOpcionMenu(opcion);
 
-        if (!validarOpcionMenu(opcion, 1, 5)) {
-            cout << "Opcion no valida. Intente de nuevo.\n";
+        if (!validarOpcionMenu(opcion, 1, 8)) {
+            cout << "Opción no válida. Intente de nuevo.\n";
             continue;
         }
 
@@ -265,20 +265,18 @@ void menuLibros(ListaLibros& listaLibros, ListaAutores& listaAutores) {
             generadorPDF.generarPDF("libros_lista.pdf");
             }
             break;
-         case 6: {
-                listaLibros.crearBackup();
+        case 6:
+                listaLibros.crearBackup(); // Crear backup
                 break;
-            }
             case 7: {
-                cout << "Ingrese el nombre del archivo de backup (en 'BackupLibros'): ";
-                string archivoBackup;
-                cin >> archivoBackup;
-                listaLibros.restaurarBackup(archivoBackup);
+                string nombreBackup;
+                cout << "Ingrese el nombre del archivo de backup: ";
+                cin >> nombreBackup;
+                listaLibros.restaurarBackup(nombreBackup); // Restaurar backup
                 break;
             }
             case 8:
                 cout << "Volviendo al menú principal...\n";
-                system("pause");
                 break;
         }
     } while (opcion != 8);

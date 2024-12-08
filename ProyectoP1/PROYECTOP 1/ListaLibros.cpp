@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <chrono> // Necesario para trabajar con std::chrono
 #include "json.hpp"
 #include <iomanip>
 using json = nlohmann::json;
@@ -213,9 +214,65 @@ string ListaLibros::seleccionarAutor(ListaAutores& listaAutores) {
 }
 
 void ListaLibros::crearBackup() {
-    BackupManager::crearBackupConFecha("BackupLibros", "libros.json");
+    // Generar nombre con fecha y hora
+    auto now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    tm localTime;
+    localtime_s(&localTime, &now); // Convertir a hora local
+
+    char buffer[64];
+    strftime(buffer, sizeof(buffer), "BackupLibros/libros-%Y-%m-%d-%H-%M-%S.json", &localTime);
+
+    // Guardar backup
+    ofstream archivo(buffer);
+    if (!archivo.is_open()) {
+        cout << "Error: No se pudo crear el backup en la carpeta BackupLibros.\n";
+        return;
+    }
+
+    json jLibros = json::array();
+    NodoLibros* actual = cabeza;
+    do {
+        jLibros.push_back({
+            {"titulo", actual->getTitulo()},
+            {"autor", actual->getAutor()},
+            {"isbn", actual->getIsbn()},
+            {"genero", actual->getGenero()},
+            {"anioLanzamiento", actual->getAnioLanzamiento()},
+            {"precio", actual->getPrecio()},
+            {"calificacion", actual->getCalificacion()}
+        });
+        actual = actual->getSiguiente();
+    } while (actual != cabeza);
+
+    archivo << jLibros.dump(4);
+    archivo.close();
+    cout << "Backup creado exitosamente: " << buffer << "\n";
 }
 
-void ListaLibros::restaurarBackup(const string& archivoBackup) {
-    BackupManager::restaurarBackup("BackupLibros", archivoBackup, "libros.json");
+void ListaLibros::restaurarBackup(const string& nombreArchivo) {
+    ifstream archivo("BackupLibros/" + nombreArchivo); // Leer desde la carpeta BackupLibros
+    if (!archivo.is_open()) {
+        cout << "Error: No se pudo abrir el archivo de backup " << nombreArchivo << ".\n";
+        return;
+    }
+
+    json jLibros;
+    archivo >> jLibros;
+    archivo.close();
+
+    cabeza = nullptr; // Reiniciar la lista actual
+
+    for (const auto& libro : jLibros) {
+        string titulo = libro["titulo"];
+        string autor = libro["autor"];
+        string isbn = libro["isbn"];
+        string genero = libro["genero"];
+        string anioLanzamiento = to_string(libro["anioLanzamiento"]); // Convertir int a string
+        float precio = libro["precio"];
+        float calificacion = libro["calificacion"];
+
+        insertar(titulo, autor, isbn, genero, anioLanzamiento, precio, calificacion);
+    }
+
+    cout << "Backup restaurado correctamente desde " << nombreArchivo << ".\n";
 }
