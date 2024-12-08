@@ -601,7 +601,7 @@
 1733632546 c:\users\jerson\documents\codeblocks\proyecto 1\nodolibros.h
 	<string>
 
-1733650306 source:c:\users\jerson\documents\codeblocks\proyecto 1\listaautores.cpp
+1733651977 source:c:\users\jerson\documents\codeblocks\proyecto 1\listaautores.cpp
 	"ListaAutores.h"
 	"Validaciones.h"
 	<iostream>
@@ -646,7 +646,7 @@
 	<iostream>
 	<limits>
 
-1733650011 source:c:\users\jerson\documents\codeblocks\proyecto 1\backupmanager.cpp
+1733651932 source:c:\users\jerson\documents\codeblocks\proyecto 1\backupmanager.cpp
 	"BackupManager.h"
 	<fstream>
 	<iostream>

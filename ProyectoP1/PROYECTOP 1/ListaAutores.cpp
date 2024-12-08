@@ -145,7 +145,6 @@ void ListaAutores::cargarDesdeArchivoJSON() {
         insertar(cedula, nombre, apellido, fechaPublicacion);
     }
 
-    cout << "Datos cargados correctamente desde 'autores.json'.\n";
 }
 
 void ListaAutores::crearBackup() {
@@ -202,6 +201,4 @@ void ListaAutores::restaurarBackup(const string& nombreArchivo) {
 
         insertar(cedula, nombre, apellido, fechaPublicacion);
     }
-
-    cout << "Backup restaurado correctamente desde " << nombreArchivo << ".\n";
 }

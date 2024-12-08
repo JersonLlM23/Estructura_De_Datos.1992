@@ -8,7 +8,13 @@
     {
         "apellido": "Llumiquinga",
         "cedula": "2100935929",
-        "fechaPublicacion": "12/23/2020",
+        "fechaPublicacion": "12/01/2024",
         "nombre": "Jerson"
+    },
+    {
+        "apellido": "Llumiquinga",
+        "cedula": "1709587230",
+        "fechaPublicacion": "02/19/2009",
+        "nombre": "Cynthia"
     }
 ]

@@ -1,6 +1,6 @@
 [
     {
-        "anioLanzamiento": "\"08/02/2003\"",
+        "anioLanzamiento": "08/02/2003",
         "autor": "xavier gomez",
         "calificacion": 4.0,
         "genero": "me",
@@ -9,7 +9,7 @@
         "titulo": "ma"
     },
     {
-        "anioLanzamiento": "\"08/08/2005\"",
+        "anioLanzamiento": "08/08/2005",
         "autor": "xavier gomez",
         "calificacion": 4.0,
         "genero": "sc",

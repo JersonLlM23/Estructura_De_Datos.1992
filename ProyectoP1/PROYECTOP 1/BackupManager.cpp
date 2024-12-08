@@ -14,17 +14,20 @@ std::string BackupManager::obtenerFechaHora() {
 }
 
 void BackupManager::crearBackupConFecha(const std::string& carpeta, const std::string& archivoOriginal) {
+    // Generar fecha y hora
     std::string fechaHora = obtenerFechaHora();
-    std::string archivoBackup = carpeta + "/" + fechaHora + "-backup.json";
+    std::string archivoBackup = carpeta + "/" + archivoOriginal + "-" + fechaHora + "-backup.json";
 
+    // Abrir los flujos de origen y destino
     std::ifstream origen(archivoOriginal, std::ios::binary);
     std::ofstream destino(archivoBackup, std::ios::binary);
 
     if (!origen.is_open() || !destino.is_open()) {
-        std::cout << "Error: No se pudo crear el backup de " << archivoOriginal << ".\n";
+        std::cout << "Error: No se pudo crear el backup en la carpeta " << carpeta << ".\n";
         return;
     }
 
+    // Copiar los datos
     destino << origen.rdbuf();
     origen.close();
     destino.close();
@@ -43,9 +46,8 @@ void BackupManager::restaurarBackup(const std::string& carpeta, const std::strin
         return;
     }
 
+    // Copiar los datos
     destino << origen.rdbuf();
     origen.close();
     destino.close();
-
-    std::cout << "Backup restaurado correctamente desde " << rutaBackup << " a " << archivoDestino << ".\n";
 }
