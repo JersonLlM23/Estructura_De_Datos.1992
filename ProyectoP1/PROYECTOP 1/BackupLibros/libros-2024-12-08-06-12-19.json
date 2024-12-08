@@ -1,0 +1,38 @@
+[
+    {
+        "anioLanzamiento": "\"08/02/2003\"",
+        "autor": "xavier gomez",
+        "calificacion": 4.0,
+        "genero": "me",
+        "isbn": "189",
+        "precio": 6.0,
+        "titulo": "ma"
+    },
+    {
+        "anioLanzamiento": "\"08/08/2005\"",
+        "autor": "xavier gomez",
+        "calificacion": 4.0,
+        "genero": "sc",
+        "isbn": "1963",
+        "precio": 6.0,
+        "titulo": "asd"
+    },
+    {
+        "anioLanzamiento": "01/27/2018",
+        "autor": "Jerson Llumiquinga",
+        "calificacion": 10.0,
+        "genero": "Romance",
+        "isbn": "03-02-03",
+        "precio": 323.989990234375,
+        "titulo": "aison Love"
+    },
+    {
+        "anioLanzamiento": "02/09/2020",
+        "autor": "Cynthia Llumiquinga",
+        "calificacion": 9.0,
+        "genero": "Comedia",
+        "isbn": "19-19-19",
+        "precio": 20.989999771118164,
+        "titulo": "BibiCholaWTF"
+    }
+]

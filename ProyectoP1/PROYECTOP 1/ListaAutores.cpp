@@ -180,25 +180,51 @@ void ListaAutores::crearBackup() {
     cout << "Backup creado exitosamente: " << buffer << "\n";
 }
 
-void ListaAutores::restaurarBackup(const string& nombreArchivo) {
-    ifstream archivo("BackupAutores/" + nombreArchivo); // Leer desde la carpeta BackupAutores
+void ListaAutores::restaurarBackup(const std::string& nombreArchivo) {
+    std::ifstream archivo("BackupAutores/" + nombreArchivo); // Leer desde la carpeta BackupAutores
     if (!archivo.is_open()) {
-        cout << "Error: No se pudo abrir el archivo de backup " << nombreArchivo << ".\n";
+        std::cout << "Error: No se pudo abrir el archivo de backup " << nombreArchivo << ".\n";
         return;
     }
 
     json jAutores;
-    archivo >> jAutores;
+    archivo >> jAutores; // Leer el contenido del archivo JSON
     archivo.close();
 
-    cabeza = nullptr; // Reiniciar la lista actual
-
-    for (const auto& autor : jAutores) {
-        string cedula = autor["cedula"];
-        string nombre = autor["nombre"];
-        string apellido = autor["apellido"];
-        string fechaPublicacion = autor["fechaPublicacion"];
-
-        insertar(cedula, nombre, apellido, fechaPublicacion);
+    // Liberar memoria de la lista actual (si existe)
+    if (cabeza) {
+        NodoAutores* actual = cabeza;
+        do {
+            NodoAutores* siguiente = actual->getSiguiente();
+            delete actual;
+            actual = siguiente;
+        } while (actual != cabeza);
+        cabeza = nullptr; // Reiniciar la lista
     }
+
+    // Reconstruir la lista desde el backup
+    for (const auto& autor : jAutores) {
+        std::string cedula = autor["cedula"];
+        std::string nombre = autor["nombre"];
+        std::string apellido = autor["apellido"];
+        std::string fechaPublicacion = autor["fechaPublicacion"];
+
+        NodoAutores* nuevo = new NodoAutores(cedula, nombre, apellido, fechaPublicacion);
+        if (!cabeza) {
+            cabeza = nuevo;
+            cabeza->setSiguiente(cabeza);
+            cabeza->setAnterior(cabeza);
+        } else {
+            NodoAutores* ultimo = cabeza->getAnterior();
+            ultimo->setSiguiente(nuevo);
+            nuevo->setAnterior(ultimo);
+            nuevo->setSiguiente(cabeza);
+            cabeza->setAnterior(nuevo);
+        }
+    }
+
+    // Guardar todos los datos una sola vez
+    guardarEnArchivoJSON();
+
+    std::cout << "Backup restaurado correctamente desde " << nombreArchivo << ".\n";
 }

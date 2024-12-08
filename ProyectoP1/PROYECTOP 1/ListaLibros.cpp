@@ -260,8 +260,18 @@ void ListaLibros::restaurarBackup(const string& nombreArchivo) {
     archivo >> jLibros;
     archivo.close();
 
-    cabeza = nullptr; // Reiniciar la lista actual
+    // Liberar memoria de la lista actual (si existe)
+    if (cabeza) {
+        NodoLibros* actual = cabeza;
+        do {
+            NodoLibros* siguiente = actual->getSiguiente();
+            delete actual;
+            actual = siguiente;
+        } while (actual != cabeza);
+        cabeza = nullptr; // Reiniciar la cabeza
+    }
 
+    // Reconstruir la lista desde el backup
     for (const auto& libro : jLibros) {
         string titulo = libro["titulo"];
         string autor = libro["autor"];
@@ -271,7 +281,19 @@ void ListaLibros::restaurarBackup(const string& nombreArchivo) {
         float precio = libro["precio"];
         float calificacion = libro["calificacion"];
 
-        insertar(titulo, autor, isbn, genero, anioLanzamiento, precio, calificacion);
+        // Insertar nodos directamente sin mensajes
+        NodoLibros* nuevo = new NodoLibros(titulo, autor, isbn, genero, anioLanzamiento, precio, calificacion);
+        if (!cabeza) {
+            cabeza = nuevo;
+            cabeza->setSiguiente(cabeza);
+            cabeza->setAnterior(cabeza);
+        } else {
+            NodoLibros* ultimo = cabeza->getAnterior();
+            ultimo->setSiguiente(nuevo);
+            nuevo->setAnterior(ultimo);
+            nuevo->setSiguiente(cabeza);
+            cabeza->setAnterior(nuevo);
+        }
     }
 
     cout << "Backup restaurado correctamente desde " << nombreArchivo << ".\n";
