@@ -3,7 +3,7 @@
 #include "ListaAutores.h"
 #include <string>
 #include <fstream>
-#include "json.hpp" // AsegÃºrate de que esta ruta sea correcta
+#include "json.hpp" // Asegúrate de que esta ruta sea correcta
 
 using json = nlohmann::json; // Simplifica el uso de JSON
 
@@ -16,8 +16,8 @@ public:
     ListaLibros();
     ~ListaLibros();
 
-    // Operaciones bÃ¡sicas
-    bool insertar(string titulo, string autor, string isbn, string genero, int anioLanzamiento, float precio, float calificacion);
+    // Operaciones básicas
+    bool insertar(string titulo, string autor, string isbn, string genero, string anioLanzamiento, float precio, float calificacion);
     NodoLibros* buscar(string isbn);
     bool eliminar(string isbn);
     void mostrar();
@@ -26,6 +26,13 @@ public:
     void cargarDesdeArchivoJSON(); // Cargar datos desde un archivo JSON
     void guardarEnArchivoJSON();   // Guardar datos en un archivo JSON
 
-    // RelaciÃ³n con autores
+    // Funciones para Backup
+    void crearBackup(); // Crear un backup con fecha y hora
+    void restaurarBackup(const string& archivoBackup); // Restaurar desde un backup
+
+    // Relación con autores
     string seleccionarAutor(ListaAutores& listaAutores);
+
+    // Método getter para obtener el nodo cabeza
+    NodoLibros* getCabeza() const { return cabeza; }
 };

@@ -8,19 +8,19 @@ private:
     string autor;
     string isbn;
     string genero;
-    int anioLanzamiento;
+    string anioLanzamiento;
     float precio;
     float calificacion;
     NodoLibros* siguiente;
     NodoLibros* anterior;
 
 public:
-    NodoLibros(string, string, string, string, int, float, float);
+    NodoLibros(string, string, string, string, string, float, float);
     string getTitulo();
     string getAutor();
     string getIsbn();
     string getGenero();
-    int getAnioLanzamiento();
+    string getAnioLanzamiento();
     float getPrecio();
     float getCalificacion();
     NodoLibros* getSiguiente();

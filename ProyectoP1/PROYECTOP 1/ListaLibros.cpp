@@ -1,8 +1,10 @@
 #include "ListaLibros.h"
+#include "BackupManager.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include "json.hpp"
+#include <iomanip>
 using json = nlohmann::json;
 
 ListaLibros::ListaLibros() : cabeza(nullptr) {}
@@ -18,7 +20,7 @@ ListaLibros::~ListaLibros() {
     }
 }
 
-bool ListaLibros::insertar(string titulo, string autor, string isbn, string genero, int anioLanzamiento, float precio, float calificacion) {
+bool ListaLibros::insertar(string titulo, string autor, string isbn, string genero, string anioLanzamiento, float precio, float calificacion) {
     if (buscar(isbn)) {
         cout << "Error: Libro con ISBN " << isbn << " ya existe.\n";
         return false;
@@ -43,16 +45,22 @@ bool ListaLibros::insertar(string titulo, string autor, string isbn, string gene
 
 NodoLibros* ListaLibros::buscar(string isbn) {
     if (!cabeza) {
-        cout << "La lista de libros est√° vac√≠a.\n";
+        cout << "La lista de libros est· vacÌa.\n";
         return nullptr;
     }
 
     NodoLibros* actual = cabeza;
     do {
-        // Depuraci√≥n: Mostrar qu√© ISBN se compara
-        cout << "Comparando ISBN en nodo: " << actual->getIsbn() << " con " << isbn << "\n";
         if (actual->getIsbn() == isbn) {
-            cout << "Libro encontrado: " << actual->getTitulo() << "\n";
+            // Imprimir toda la informaciÛn del libro
+            cout << "Libro encontrado:\n";
+            cout << "TÌtulo: " << actual->getTitulo() << "\n";
+            cout << "Autor: " << actual->getAutor() << "\n";
+            cout << "ISBN: " << actual->getIsbn() << "\n";
+            cout << "GÈnero: " << actual->getGenero() << "\n";
+            cout << "AÒo de lanzamiento: " << actual->getAnioLanzamiento() << "\n";
+            cout << "Precio: $" << std::fixed << std::setprecision(2) << actual->getPrecio() << "\n";
+            cout << "CalificaciÛn: " << std::fixed << std::setprecision(2) << actual->getCalificacion() << "\n";
             return actual;
         }
         actual = actual->getSiguiente();
@@ -63,9 +71,9 @@ NodoLibros* ListaLibros::buscar(string isbn) {
 }
 
 bool ListaLibros::eliminar(string isbn) {
-    // Verificar si la lista est√° vac√≠a
+    // Verificar si la lista est· vacÌa
     if (!cabeza) {
-        cout << "Error: La lista de libros est√° vac√≠a.\n";
+        cout << "Error: La lista de libros est· vacÌa.\n";
         return false;
     }
 
@@ -75,11 +83,11 @@ bool ListaLibros::eliminar(string isbn) {
         return false;
     }
 
-    // Caso: √önico nodo en la lista
+    // Caso: ⁄nico nodo en la lista
     if (encontrado->getSiguiente() == encontrado) {
         cabeza = nullptr;
     } else {
-        // Caso: M√∫ltiples nodos en la lista
+        // Caso: M˙ltiples nodos en la lista
         NodoLibros* anterior = encontrado->getAnterior();
         NodoLibros* siguiente = encontrado->getSiguiente();
 
@@ -102,27 +110,27 @@ bool ListaLibros::eliminar(string isbn) {
 
 void ListaLibros::mostrar() {
     if (!cabeza) {
-        cout << "Lista de libros vac√≠a.\n";
+        cout << "Lista de libros vacÌa.\n";
         return;
     }
 
     NodoLibros* actual = cabeza;
     cout << "Mostrando libros:\n";
     do {
-        cout << "T√≠tulo: " << actual->getTitulo()
-             << ", Autor: " << actual->getAutor()
-             << ", ISBN: " << actual->getIsbn()
-             << ", G√©nero: " << actual->getGenero()
-             << ", A√±o de Lanzamiento: " << actual->getAnioLanzamiento()
-             << ", Precio: " << actual->getPrecio()
-             << ", Calificaci√≥n: " << actual->getCalificacion() << "\n";
+        cout << "TÌtulo: " << actual->getTitulo()
+             << " Autor: " << actual->getAutor()
+             << " ISBN: " << actual->getIsbn()
+             << " GÈnero: " << actual->getGenero()
+             << " AÒo de Lanzamiento: " << actual->getAnioLanzamiento()
+             << " Precio: $" << std::fixed << std::setprecision(2) << actual->getPrecio()
+             << " CalificaciÛn: " << std::fixed << std::setprecision(2) << actual->getCalificacion() << "\n";
         actual = actual->getSiguiente();
     } while (actual != cabeza);
 }
 
 void ListaLibros::guardarEnArchivoJSON() {
     if (!cabeza) {
-        cout << "La lista de libros est√° vac√≠a. Nada que guardar.\n";
+        cout << "La lista de libros est· vacÌa. Nada que guardar.\n";
         return;
     }
 
@@ -146,7 +154,7 @@ void ListaLibros::guardarEnArchivoJSON() {
     if (archivo.is_open()) {
         archivo << jLibros.dump(4);
         archivo.close();
-        cout << "Datos guardados correctamente en 'libros.json'.\n";
+    //    cout << "Datos guardados correctamente en 'libros.json'.\n";
     } else {
         cout << "Error: No se pudo abrir el archivo para guardar datos.\n";
     }
@@ -169,16 +177,16 @@ void ListaLibros::cargarDesdeArchivoJSON() {
         string autor = libro["autor"];
         string isbn = libro["isbn"];
         string genero = libro["genero"];
-        int anioLanzamiento = libro["anioLanzamiento"];
+        string anioLanzamiento = libro["anioLanzamiento"];
         float precio = libro["precio"];
         float calificacion = libro["calificacion"];
 
-        // Depuraci√≥n: Confirmar que los datos se est√°n leyendo
-        cout << "Cargando libro: T√≠tulo: " << titulo << ", Autor: " << autor 
-             << ", ISBN: " << isbn << ", G√©nero: " << genero 
-             << ", A√±o de Lanzamiento: " << anioLanzamiento 
-             << ", Precio: " << precio 
-             << ", Calificaci√≥n: " << calificacion << "\n";
+        // DepuraciÛn: Confirmar que los datos se est·n leyendo
+        cout << "Cargando libro: TÌtulo: " << titulo << ", Autor: " << autor
+             << ", ISBN: " << isbn << ", GÈnero: " << genero
+             << ", AÒo de Lanzamiento: " << anioLanzamiento
+             << ", Precio: " << precio
+             << ", CalificaciÛn: " << calificacion << "\n";
 
         insertar(titulo, autor, isbn, genero, anioLanzamiento, precio, calificacion);
     }
@@ -192,7 +200,7 @@ string ListaLibros::seleccionarAutor(ListaAutores& listaAutores) {
     listaAutores.mostrar();
 
     string cedula;
-    cout << "Ingrese la c√©dula del autor: ";
+    cout << "Ingrese la cÈdula del autor: ";
     cin >> cedula;
 
     NodoAutores* autor = listaAutores.buscar(cedula);
@@ -202,4 +210,12 @@ string ListaLibros::seleccionarAutor(ListaAutores& listaAutores) {
         cout << "Error: Autor no encontrado.\n";
         return "";
     }
+}
+
+void ListaLibros::crearBackup() {
+    BackupManager::crearBackupConFecha("BackupLibros", "libros.json");
+}
+
+void ListaLibros::restaurarBackup(const string& archivoBackup) {
+    BackupManager::restaurarBackup("BackupLibros", archivoBackup, "libros.json");
 }

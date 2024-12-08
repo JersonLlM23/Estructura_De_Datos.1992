@@ -2,6 +2,7 @@
 #include "Validaciones.h"
 #include <iostream>
 #include "json.hpp"
+#include "BackupManager.h" // Asegúrate de incluir esto
 
 using json = nlohmann::json;
 
@@ -20,7 +21,7 @@ ListaAutores::~ListaAutores() {
 
 bool ListaAutores::insertar(string cedula, string nombre, string apellido, string fechaPublicacion) {
     if (buscar(cedula)) {
-        cout << "Error: Autor con cÃ©dula " << cedula << " ya existe.\n";
+        cout << "Error: Autor con cédula " << cedula << " ya existe.\n";
         return false;
     }
 
@@ -79,23 +80,23 @@ bool ListaAutores::eliminar(string cedula) {
 
 void ListaAutores::mostrar() {
     if (!cabeza) {
-        cout << "Lista de autores vacÃ­a.\n";
+        cout << "Lista de autores vacía.\n";
         return;
     }
 
     NodoAutores* actual = cabeza;
     do {
-        cout << "CÃ©dula: " << actual->getCedula()
+        cout << "Cédula: " << actual->getCedula()
              << ", Nombre: " << actual->getNombre()
              << ", Apellido: " << actual->getApellido()
-             << ", Fecha de PublicaciÃ³n: " << actual->getFechaPublicacion() << "\n";
+             << ", Fecha de Publicación: " << actual->getFechaPublicacion() << "\n";
         actual = actual->getSiguiente();
     } while (actual != cabeza);
 }
 
 void ListaAutores::guardarEnArchivoJSON() {
     if (!cabeza) {
-        cout << "La lista de autores estÃ¡ vacÃ­a. Nada que guardar.\n";
+        cout << "La lista de autores está vacía. Nada que guardar.\n";
         return;
     }
 
@@ -144,4 +145,12 @@ void ListaAutores::cargarDesdeArchivoJSON() {
     }
 
     cout << "Datos cargados correctamente desde 'autores.json'.\n";
+}
+
+void ListaAutores::crearBackup() {
+    BackupManager::crearBackupConFecha("BackupAutores", "autores.json");
+}
+
+void ListaAutores::restaurarBackup(const string& archivoBackup) {
+    BackupManager::restaurarBackup("BackupAutores", archivoBackup, "autores.json");
 }
