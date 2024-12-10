@@ -1,0 +1,11 @@
+[
+    {
+        "anioLanzamiento": "12/11/2003",
+        "autor": "juan perez",
+        "calificacion": 10.0,
+        "genero": "masculino",
+        "isbn": "1",
+        "precio": 14000000.0,
+        "titulo": "rogramacion iii"
+    }
+]

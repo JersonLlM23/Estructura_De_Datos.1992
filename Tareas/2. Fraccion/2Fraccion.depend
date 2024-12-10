@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1732651591 source:c:\users\jerson\documents\codeblocks\tarea2_fraccion\fraccion.cpp
-	"Fraccion.h"
-	<stdexcept>
-
-1732651607 c:\users\jerson\documents\codeblocks\tarea2_fraccion\fraccion.h
-	<iostream>
-

@@ -1,77 +1,61 @@
-/***********************************************************************
- * Module:  main.cpp
- * Author:  Jerson Llumiquinga M.
- * Date: 11/11/2024
- * Purpose: Sumar dos fracciones usando plantillas
- * University: UNIVERSIDAD DE LAS FUERZAS ARMADAS - ESPE
- ***********************************************************************/
+/*************************
+ * UNIVERSIDAD DE LAS FUERZAS ARMADAS - ESPE
+ * ALUMNO:  Jerson Llumiquinga M.
+ * FECHA CREACION: 10 de noviembre de 2024
+ * Enunciado del problema: Mediante el uso de plantillas crear un programa que permita realizar operaciones con fracciones.
+ * NRC: 1992
+ *************************/
 
-#include "Fraccion.cpp"
 #include <iostream>
+#include "Fraccion.cpp"  
 #include <limits>
-#include <string>
-#include <cctype>
-using namespace std;
 
-bool validarEntrada(int& valor) {
-    string entrada;
-    cin >> entrada;
-
-    for (char c : entrada) {
-        if (!isdigit(c) && c != '-') {
-            if (c == '.' || c == ',') {
-                return false;
-            }
-            return false;
+// Función para verificar que la entrada sea un número entero válido
+void verificar(int &valor) {
+    while (true) {
+        std::cin >> valor;
+        if (std::cin.fail()) { // Verifica si la entrada no es un número entero
+            std::cout << "Error: debe ingresar un número entero. Intente nuevamente: ";
+            std::cin.clear(); // Limpia el estado de error
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Descarta la entrada incorrecta
+        } else {
+            break; // Salir del bucle si la entrada es válida
         }
     }
-    // Convertir la entrada válida en un número entero
-    try {
-        valor = stoi(entrada);  // Si la conversión es exitosa, es un número entero válido
-    } catch (const invalid_argument& e) {
-        return false;  // Si no se puede convertir, es una entrada no válida
-    } catch (const out_of_range& e) {
-        return false;
-    }
-    return true;  // La entrada es un número entero válido
 }
 
-
 int main() {
-    try {
-        int numerador1, denominador1, numerador2, denominador2;
-        cout << "Ingrese el numerador de la primera fraccion: ";
-        while (!validarEntrada(numerador1)) {
-            cout << "Entrada inválida. Por favor, intente de nuevo:";
-        }
-        cout << "Ingrese el denominador de la primera fracción: ";
-        while (!validarEntrada(denominador1) || denominador1 == 0) {
-            cout << "Entrada inválida. Por favor, intente de nuevo:";
-        }
-        cout << "Ingrese el numerador de la segunda fraccion: ";
-        while (!validarEntrada(numerador2)) {
-            cout << "Entrada inválida. Por favor, intente de nuevo:";
-        }
+    int num1, den1, num2, den2;
 
-        cout << "Ingrese el denominador de la segunda fraccion: ";
-        while (!validarEntrada(denominador2) || denominador2 == 0) {
-            cout << "Entrada inválida. Por favor, intente de nuevo:";
-        }
-
-        Fraccion<int> fraccion1(numerador1, denominador1);
-        Fraccion<int> fraccion2(numerador2, denominador2);
-        Fraccion<int> resultado = fraccion1.procesar(fraccion1, fraccion2);
-
-        cout << "La suma de las fracciones "
-             << fraccion1.getNumerador() << "/" << fraccion1.getDenominador()<< " + "
-             << fraccion2.getNumerador() << "/" << fraccion2.getDenominador() << " es: "
-             << resultado.getNumerador() << "/" << resultado.getDenominador()
-             << endl;
-
-        double resultadoDecimal = static_cast<double>(resultado.getNumerador()) / resultado.getDenominador();
-        cout << "El resultado en decimal es: " << resultadoDecimal << endl;
-    } catch (const exception& e) {
-        cerr << "Error: " << e.what() << endl;
+    // Entrada de la primera fracción
+    std::cout << "Ingrese el numerador de la primera fracción: ";
+    verificar(num1);
+    std::cout << "Ingrese el denominador de la primera fracción: ";
+    verificar(den1);
+    while (den1 == 0) {
+        std::cout << "El denominador no puede ser cero. Intente nuevamente: ";
+        verificar(den1);
     }
+
+    Fraccion<int> f1(num1, den1);
+
+    // Entrada de la segunda fracción
+    std::cout << "Ingrese el numerador de la segunda fracción: ";
+    verificar(num2);
+    std::cout << "Ingrese el denominador de la segunda fracción: ";
+    verificar(den2);
+    while (den2 == 0) {
+        std::cout << "El denominador no puede ser cero. Intente nuevamente: ";
+        verificar(den2);
+    }
+
+    Fraccion<int> f2(num2, den2);
+
+    // Operaciones con las fracciones
+    Fraccion<int> operaciones;
+    operaciones.sumar(f1, f2);
+    operaciones.restar(f1, f2);
+    operaciones.multiplicar(f1, f2);
+
     return 0;
 }

@@ -1,0 +1,20 @@
+[
+    {
+        "anioLanzamiento": "08/02/2003",
+        "autor": "xavier gomez",
+        "calificacion": 4.0,
+        "genero": "me",
+        "isbn": "189",
+        "precio": 6.0,
+        "titulo": "ma"
+    },
+    {
+        "anioLanzamiento": "08/08/2005",
+        "autor": "xavier gomez",
+        "calificacion": 4.0,
+        "genero": "sc",
+        "isbn": "1963",
+        "precio": 6.0,
+        "titulo": "asd"
+    }
+]
