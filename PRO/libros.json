@@ -1,0 +1,29 @@
+[
+    {
+        "anioLanzamiento": "02/29/2024",
+        "autor": "maycol celi",
+        "calificacion": 5.0,
+        "genero": "novela",
+        "isbn": "18-08",
+        "precio": 4.0,
+        "titulo": "programacion 3"
+    },
+    {
+        "anioLanzamiento": "02/10/2000",
+        "autor": "Jerson Llumiquinga",
+        "calificacion": 5.0,
+        "genero": "Excelente",
+        "isbn": "19-23-20",
+        "precio": 98.0,
+        "titulo": "Ingles 5"
+    },
+    {
+        "anioLanzamiento": "12/23/2018",
+        "autor": "Jerson Llumiquinga",
+        "calificacion": 10.0,
+        "genero": "romance",
+        "isbn": "22-22-39",
+        "precio": 29.0,
+        "titulo": "ASD2 "
+    }
+]
