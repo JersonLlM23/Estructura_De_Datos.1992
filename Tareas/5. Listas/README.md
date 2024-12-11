@@ -1,2 +1,0 @@
-# EstructuraDeDatos1992
-Listas

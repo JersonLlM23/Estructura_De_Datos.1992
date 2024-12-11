@@ -418,3 +418,338 @@
 	<string>
 	<vector>
 
+1733868105 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\backupmanager.cpp
+	"BackupManager.h"
+	<iostream>
+	<vector>
+	<dirent.h>
+
+1733868105 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\backupmanager.h
+	<string>
+	<vector>
+
+1733868105 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\cursor.cpp
+	"Cursor.h"
+	<iostream>
+	<conio.h>
+	<cstdlib>
+	<windows.h>
+
+1733868105 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\cursor.h
+	<windows.h>
+	<string>
+
+1733868105 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\fileutils.cpp
+	"FileUtils.h"
+	<iostream>
+	<dirent.h>
+	<vector>
+	<string>
+
+1733868105 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\fileutils.h
+	<string>
+	<vector>
+
+1733868105 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\generarpdfautores.cpp
+	"GenerarPDFAutores.h"
+	<iostream>
+	<hpdf.h>
+	<cstdlib>
+
+1733632546 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\generarpdfautores.h
+	"ListaAutores.h"
+	<string>
+
+1733690132 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\listaautores.h
+	"NodoAutores.h"
+	<string>
+	<fstream>
+	"json.hpp"
+
+1733632546 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\nodoautores.h
+	<string>
+
+1733632546 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\json.hpp
+	<algorithm>
+	<cstddef>
+	<functional>
+	<initializer_list>
+	<iosfwd>
+	<iterator>
+	<memory>
+	<string>
+	<utility>
+	<vector>
+	<utility>
+	<algorithm>
+	<array>
+	<forward_list>
+	<iterator>
+	<map>
+	<optional>
+	<string>
+	<tuple>
+	<type_traits>
+	<unordered_map>
+	<utility>
+	<valarray>
+	<cstddef>
+	<exception>
+	<numeric>
+	<stdexcept>
+	<string>
+	<vector>
+	<array>
+	<cstddef>
+	<cstdint>
+	<string>
+	<utility>
+	<type_traits>
+	<stdint.h>
+	<stdint.h>
+	<version>
+	<cstdlib>
+	<cassert>
+	<compare>
+	<cstddef>
+	<array>
+	<cstddef>
+	<type_traits>
+	<utility>
+	<limits>
+	<type_traits>
+	<utility>
+	<tuple>
+	<string>
+	<iterator>
+	<cstdint>
+	<map>
+	<memory>
+	<string>
+	<vector>
+	<cstring>
+	<string>
+	<utility>
+	<experimental/filesystem>
+	<filesystem>
+	<algorithm>
+	<iterator>
+	<optional>
+	<string>
+	<tuple>
+	<type_traits>
+	<utility>
+	<valarray>
+	<vector>
+	<cstddef>
+	<iterator>
+	<string>
+	<tuple>
+	<utility>
+	<ranges>
+	<cstdint>
+	<tuple>
+	<utility>
+	<cstdint>
+	<cstddef>
+	<functional>
+	<algorithm>
+	<array>
+	<cmath>
+	<cstddef>
+	<cstdint>
+	<cstdio>
+	<cstring>
+	<iterator>
+	<limits>
+	<string>
+	<utility>
+	<vector>
+	<bit>
+	<array>
+	<cstddef>
+	<cstring>
+	<iterator>
+	<memory>
+	<numeric>
+	<string>
+	<type_traits>
+	<utility>
+	<cstdio>
+	<istream>
+	<cstddef>
+	<string>
+	<utility>
+	<vector>
+	<array>
+	<clocale>
+	<cstddef>
+	<cstdio>
+	<cstdlib>
+	<initializer_list>
+	<string>
+	<utility>
+	<vector>
+	<cstdint>
+	<utility>
+	<string>
+	<cmath>
+	<cstdint>
+	<functional>
+	<string>
+	<utility>
+	<vector>
+	<cstddef>
+	<limits>
+	<iterator>
+	<type_traits>
+	<cstddef>
+	<iterator>
+	<utility>
+	<type_traits>
+	<algorithm>
+	<cctype>
+	<cerrno>
+	<cstdlib>
+	<iosfwd>
+	<limits>
+	<numeric>
+	<string>
+	<utility>
+	<vector>
+	<initializer_list>
+	<utility>
+	<algorithm>
+	<array>
+	<map>
+	<cmath>
+	<cstdint>
+	<cstring>
+	<limits>
+	<string>
+	<utility>
+	<vector>
+	<algorithm>
+	<cstddef>
+	<iterator>
+	<memory>
+	<string>
+	<vector>
+	<ios>
+	<ostream>
+	<algorithm>
+	<array>
+	<clocale>
+	<cmath>
+	<cstddef>
+	<cstdint>
+	<cstdio>
+	<limits>
+	<string>
+	<iomanip>
+	<type_traits>
+	<utility>
+	<array>
+	<cmath>
+	<cstdint>
+	<cstring>
+	<limits>
+	<type_traits>
+	<functional>
+	<initializer_list>
+	<iterator>
+	<memory>
+	<stdexcept>
+	<type_traits>
+	<utility>
+	<vector>
+	<any>
+	<string_view>
+
+1733868105 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\generarpdflibros.cpp
+	"GenerarPDFLibros.h"
+	<iostream>
+	<hpdf.h>
+	<iomanip>
+	<sstream>
+	<cstdlib>
+
+1733632546 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\generarpdflibros.h
+	"ListaLibros.h"
+	<string>
+	<iostream>
+	<fstream>
+	<hpdf.h>
+
+1733690132 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\listalibros.h
+	"NodoLibros.h"
+	"ListaAutores.h"
+	<string>
+	<fstream>
+	"json.hpp"
+
+1733632546 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\nodolibros.h
+	<string>
+
+1733868105 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\listaautores.cpp
+	"ListaAutores.h"
+	"Validaciones.h"
+	<iostream>
+	"json.hpp"
+	<chrono>
+	"BackupManager.h"
+
+1733632546 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\validaciones.h
+	<string>
+
+1733868105 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\listalibros.cpp
+	"ListaLibros.h"
+	"BackupManager.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	<chrono>
+	"json.hpp"
+	<iomanip>
+
+1733868106 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\main.cpp
+	"ListaAutores.h"
+	"ListaLibros.h"
+	"Validaciones.h"
+	"GenerarPDFLibros.h"
+	"GenerarPDFAutores.h"
+	"VentanaAyuda.h"
+	"Cursor.h"
+	<iostream>
+	<cstdlib>
+	<limits>
+	<hpdf.h>
+	<conio.h>
+	"BackupManager.h"
+	"FileUtils.h"
+	<ctime>
+	<string>
+
+1733690132 c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\ventanaayuda.h
+	<windows.h>
+
+1733632546 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\nodoautores.cpp
+	"NodoAutores.h"
+
+1733868105 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\validaciones.cpp
+	"Validaciones.h"
+	<regex>
+	<iostream>
+	<limits>
+	<ctime>
+	<string>
+
+1733868105 source:c:\users\jerson\documents\github\estructura_de_datos.1992\proyectop1\proyecto v 1.0.4\ventanaayuda.cpp
+	"VentanaAyuda.h"
+	<sstream>
+	<iostream>
+	<windows.h>
+	<cstring>
+	<vector>
+	<sstream>
+
