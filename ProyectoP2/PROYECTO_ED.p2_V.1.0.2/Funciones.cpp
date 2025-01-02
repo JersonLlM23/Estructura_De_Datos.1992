@@ -219,15 +219,39 @@ std::string normalizarNombre(const std::string& nombre) {
 }
 
 void insertarAutor(BTree<Autor*>& autores) {
-    std::cout << "Ingrese la cedula del autor: ";
+    std::cout << "Ingrese la cédula del autor: ";
     std::string cedula = Validaciones::leerCedula();
+
+    // Depuración: verificar si la cédula ya existe
+    Autor** autorPtr = autores.search([&](Autor* autor) {
+        std::cout << "Comparando " << autor->getId() << " con " << cedula << std::endl; // Debug
+        return autor->getId() == cedula;
+        });
+
+    if (autorPtr) {
+        std::cout << "La cédula ya está registrada. No se puede insertar el autor.\n";
+        system("pause");
+        return;
+    }
+
     std::cout << "Ingrese el nombre del autor: ";
-    std::string nombre = Validaciones::leerLinea();
+    std::string nombre = Validaciones::leerSoloLetras(); // Validar que sean solo letras
 
+    std::cout << "Ingrese el segundo nombre del autor (opcional): ";
+    std::string nombre2 = Validaciones::leerSoloLetras();
 
-    Autor* nuevoAutor = new Autor(cedula, nombre);
+    std::cout << "Ingrese el apellido del autor: ";
+    std::string apellido = Validaciones::leerSoloLetras();
+
+    // Normalizar el nombre
+    nombre = normalizarNombre(nombre);
+    nombre2 = normalizarNombre(nombre2);
+    apellido = normalizarNombre(apellido);
+
+    Autor* nuevoAutor = new Autor(cedula, nombre, nombre2, apellido);
     autores.insert(nuevoAutor);
     std::cout << "Autor insertado con éxito.\n";
+    system("pause");
 }
 
 void buscarAutor(const BTree<Autor*>& autores) {
@@ -295,4 +319,6 @@ void guardarAutores(BTree<Autor*>& autores) {
     std::cout << "Autores guardados correctamente.\n";
     system("pause");
 }
+
+
 

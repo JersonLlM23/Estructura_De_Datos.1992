@@ -22,13 +22,15 @@ int getch() {
 class Validaciones
 {
 public:
-
+    
     static int leerEntero();
     static float leerFloat();
     static double leerDouble();
     static char leerLetra();
     static std::string leerPalabra();
+    static bool esNombreValido(const std::string& nombre);
 
+    static std::string leerSoloLetras();
     static std::string leerCedula();
     static std::string leerNumero();
     static bool validarCedula(std::string cedula);

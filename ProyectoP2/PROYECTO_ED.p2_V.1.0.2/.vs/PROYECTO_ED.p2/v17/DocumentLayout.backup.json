@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Funciones.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Funciones.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Validaciones.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Validaciones.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Validaciones.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Validaciones.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Funciones.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -19,16 +23,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Autor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Funciones.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Funciones.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Autor.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Autor.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Validaciones.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Validaciones.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Validaciones.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Validaciones.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\BTree.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -42,17 +42,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAFwBAAAAAAAAAAAYwGUBAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAAcBAAAAAAAAAAAYwBUBAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-02T07:07:11.679Z",
               "IsPinned": true,
@@ -60,78 +60,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Funciones.cpp",
               "DocumentMoniker": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Funciones.cpp",
               "RelativeDocumentMoniker": "Funciones.cpp",
               "ToolTip": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Funciones.cpp",
               "RelativeToolTip": "Funciones.cpp",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEwAAABpAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-02T07:12:21.763Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Funciones.hpp",
               "DocumentMoniker": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Funciones.hpp",
               "RelativeDocumentMoniker": "Funciones.hpp",
               "ToolTip": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Funciones.hpp",
               "RelativeToolTip": "Funciones.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-02T08:38:10.402Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Autor.hpp",
               "DocumentMoniker": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Autor.hpp",
               "RelativeDocumentMoniker": "Autor.hpp",
               "ToolTip": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Autor.hpp",
               "RelativeToolTip": "Autor.hpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwCsAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-02T10:28:47.655Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Autor.cpp",
               "DocumentMoniker": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Autor.cpp",
               "RelativeDocumentMoniker": "Autor.cpp",
               "ToolTip": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Autor.cpp",
               "RelativeToolTip": "Autor.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-02T10:09:13.35Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Validaciones.cpp",
               "DocumentMoniker": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Validaciones.cpp",
               "RelativeDocumentMoniker": "Validaciones.cpp",
               "ToolTip": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Validaciones.cpp",
               "RelativeToolTip": "Validaciones.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAOAAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAEcBAABw59DdHLorwFQBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-02T07:25:47.07Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Validaciones.hpp",
               "DocumentMoniker": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Validaciones.hpp",
               "RelativeDocumentMoniker": "Validaciones.hpp",
               "ToolTip": "C:\\Users\\JERSON\\Documents\\MVS\\PROYECTO_ED.p2\\Validaciones.hpp",
               "RelativeToolTip": "Validaciones.hpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAIwCYAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-02T07:22:30.127Z",
               "EditorCaption": ""

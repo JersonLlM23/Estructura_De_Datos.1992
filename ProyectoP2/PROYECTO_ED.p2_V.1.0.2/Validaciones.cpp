@@ -188,6 +188,13 @@ std::string Validaciones::leerPalabra()
     return saveStr;
 }
 
+bool Validaciones::esNombreValido(const std::string& nombre) {
+    for (char c : nombre) {
+        if (isdigit(c)) return false; // Retorna falso si hay números
+    }
+    return true; // Retorna verdadero si no hay números
+}
+
 std::string Validaciones::leerCedula()
 {
     const int CED_TAM = 11;
@@ -310,4 +317,26 @@ bool Validaciones::validarCedula(std::string cedula)
         printf("Digito verificador obtenido: %d. Error en el digito verificador.\n", num);
         return 0;
     }
+}
+
+std::string Validaciones::leerSoloLetras() {
+    std::string entrada;
+    bool valido;
+
+    do {
+        valido = true;
+        std::getline(std::cin, entrada);
+
+        std::cout << "Validando entrada: " << entrada << std::endl; // Debug
+
+        for (char c : entrada) {
+            if (!isalpha(c) && !isspace(c)) {
+                valido = false;
+                std::cout << "Entrada inválida. Solo se permiten letras. Intente nuevamente: ";
+                break;
+            }
+        }
+    } while (!valido);
+
+    return entrada;
 }

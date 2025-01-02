@@ -252,15 +252,32 @@ void manejarAutores(BTree<Autor*>& autores) {
             case 1: { // Insertar autor
                 std::cout << "Ingrese la cédula del autor: ";
                 std::string cedula = Validaciones::leerCedula();
+
+                // Verificar si ya existe un autor con esta cédula
+                Autor** autorPtr = autores.search([&](Autor* a) { return a->getId() == cedula; });
+                if (autorPtr) {
+                    std::cout << "Error: Ya existe un autor con esta cédula.\n";
+                    system("pause");
+                    break;
+                }
+
                 std::cout << "Ingrese el nombre del autor: ";
                 std::string nombre = Validaciones::leerLinea();
                 nombre = normalizarNombre(nombre);
+
+                // Validar que el nombre no contenga números
+                if (!Validaciones::esNombreValido(nombre)) {
+                    std::cout << "El nombre no puede contener números.\n";
+                    system("pause");
+                    return;
+                }
 
                 Autor* nuevoAutor = new Autor(cedula, nombre);
                 autores.insert(nuevoAutor);
                 std::cout << "Autor insertado con éxito.\n";
                 system("pause");
                 break;
+            }
             }
             case 2: { // Buscar autor
                 std::cout << "Ingrese la cédula del autor a buscar: ";
@@ -313,7 +330,7 @@ void manejarAutores(BTree<Autor*>& autores) {
             break;
         }
     }
-}
+
 
 int main() {
     BTree<Libro*> listaLibros(3);
