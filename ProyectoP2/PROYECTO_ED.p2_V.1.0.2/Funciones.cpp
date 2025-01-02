@@ -222,18 +222,13 @@ void insertarAutor(BTree<Autor*>& autores) {
     std::cout << "Ingrese la cédula del autor: ";
     std::string cedula = Validaciones::leerCedula();
 
-    // Depuración: verificar si la cédula ya existe
-    Autor** autorPtr = autores.search([&](Autor* autor) {
-        std::cout << "Comparando " << autor->getId() << " con " << cedula << std::endl; // Debug
-        return autor->getId() == cedula;
-        });
-
-    if (autorPtr) {
-        std::cout << "La cédula ya está registrada. No se puede insertar el autor.\n";
-        system("pause");
-        return;
+    Autor** autorExistente = autores.search([&](Autor* a) { return a->getId() == cedula; });
+    if (autorExistente) {
+        std::cout << "Error: Ya existe un autor con esta cédula.\n";
+        system("pause"); // Pausa para que el usuario vea el error
+        return; // Salir de la función sin continuar
     }
-
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cout << "Ingrese el nombre del autor: ";
     std::string nombre = Validaciones::leerSoloLetras(); // Validar que sean solo letras
 
@@ -248,10 +243,11 @@ void insertarAutor(BTree<Autor*>& autores) {
     nombre2 = normalizarNombre(nombre2);
     apellido = normalizarNombre(apellido);
 
-    Autor* nuevoAutor = new Autor(cedula, nombre, nombre2, apellido);
+    Autor* nuevoAutor = new Autor(cedula, nombre, "", "");
     autores.insert(nuevoAutor);
     std::cout << "Autor insertado con éxito.\n";
     system("pause");
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 void buscarAutor(const BTree<Autor*>& autores) {

@@ -250,8 +250,16 @@ void manejarAutores(BTree<Autor*>& autores) {
         case 13: // Enter
             switch (opcion) {
             case 1: { // Insertar autor
-                std::cout << "Ingrese la cédula del autor: ";
-                std::string cedula = Validaciones::leerCedula();
+                std::string cedula;
+                do {
+                    std::cout << "Ingrese la cédula del autor (10 dígitos): ";
+                    cedula = Validaciones::leerCedula();
+
+                    if (cedula.length() != 10) {
+                        std::cout << "La cédula debe tener exactamente 10 dígitos. Intente nuevamente.\n";
+                        system("pause");
+                    }
+                } while (cedula.length() != 10);
 
                 // Verificar si ya existe un autor con esta cédula
                 Autor** autorPtr = autores.search([&](Autor* a) { return a->getId() == cedula; });
@@ -261,27 +269,58 @@ void manejarAutores(BTree<Autor*>& autores) {
                     break;
                 }
 
-                std::cout << "Ingrese el nombre del autor: ";
-                std::string nombre = Validaciones::leerLinea();
-                nombre = normalizarNombre(nombre);
+                std::string nombre, segundoNombre, apellido;
 
-                // Validar que el nombre no contenga números
-                if (!Validaciones::esNombreValido(nombre)) {
-                    std::cout << "El nombre no puede contener números.\n";
-                    system("pause");
-                    return;
-                }
+                do {
+                    std::cout << "Ingrese el primer nombre del autor: ";
+                    nombre = Validaciones::leerLinea();
+                    nombre = normalizarNombre(nombre);
 
-                Autor* nuevoAutor = new Autor(cedula, nombre);
+                    if (!Validaciones::esNombreValido(nombre)) {
+                        std::cout << "El nombre no puede contener números.\n";
+                        system("pause");
+                    }
+                } while (!Validaciones::esNombreValido(nombre));
+
+                do {
+                    std::cout << "Ingrese el segundo nombre del autor (opcional, presione Enter para omitir): ";
+                    segundoNombre = Validaciones::leerLinea();
+                    segundoNombre = normalizarNombre(segundoNombre);
+
+                    if (!segundoNombre.empty() && !Validaciones::esNombreValido(segundoNombre)) {
+                        std::cout << "El segundo nombre no puede contener números.\n";
+                        system("pause");
+                    }
+                } while (!segundoNombre.empty() && !Validaciones::esNombreValido(segundoNombre));
+
+                do {
+                    std::cout << "Ingrese el apellido del autor: ";
+                    apellido = Validaciones::leerLinea();
+                    apellido = normalizarNombre(apellido);
+
+                    if (!Validaciones::esNombreValido(apellido)) {
+                        std::cout << "El apellido no puede contener números.\n";
+                        system("pause");
+                    }
+                } while (!Validaciones::esNombreValido(apellido));
+
+                Autor* nuevoAutor = new Autor(cedula, nombre, segundoNombre, apellido);
                 autores.insert(nuevoAutor);
                 std::cout << "Autor insertado con éxito.\n";
                 system("pause");
                 break;
             }
-            }
             case 2: { // Buscar autor
-                std::cout << "Ingrese la cédula del autor a buscar: ";
-                std::string cedula = Validaciones::leerCedula();
+                std::string cedula;
+                do {
+                    std::cout << "Ingrese la cédula del autor a buscar (10 dígitos): ";
+                    cedula = Validaciones::leerCedula();
+
+                    if (cedula.length() != 10) {
+                        std::cout << "La cédula debe tener exactamente 10 dígitos. Intente nuevamente.\n";
+                        system("pause");
+                    }
+                } while (cedula.length() != 10);
 
                 Autor** autorPtr = autores.search([&](Autor* a) { return a->getId() == cedula; });
                 if (autorPtr) {
@@ -294,8 +333,16 @@ void manejarAutores(BTree<Autor*>& autores) {
                 break;
             }
             case 3: { // Eliminar autor
-                std::cout << "Ingrese la cédula del autor a eliminar: ";
-                std::string cedula = Validaciones::leerCedula();
+                std::string cedula;
+                do {
+                    std::cout << "Ingrese la cédula del autor a eliminar (10 dígitos): ";
+                    cedula = Validaciones::leerCedula();
+
+                    if (cedula.length() != 10) {
+                        std::cout << "La cédula debe tener exactamente 10 dígitos. Intente nuevamente.\n";
+                        system("pause");
+                    }
+                } while (cedula.length() != 10);
 
                 bool eliminado = autores.remove([&](Autor* a) { return a->getId() == cedula; });
                 if (eliminado) {
@@ -318,7 +365,7 @@ void manejarAutores(BTree<Autor*>& autores) {
                 break;
             }
             case 5: { // Guardar autores
-                guardarAutores(autores); // Asegúrate de que esta función esté implementada
+                guardarAutores(autores);
                 std::cout << "Autores guardados correctamente.\n";
                 system("pause");
                 break;
@@ -330,6 +377,7 @@ void manejarAutores(BTree<Autor*>& autores) {
             break;
         }
     }
+}
 
 
 int main() {
