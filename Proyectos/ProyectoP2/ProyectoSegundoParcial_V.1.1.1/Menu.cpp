@@ -248,8 +248,8 @@ void mostrarMenu(ArbolBTree& arbol) {
                 int anioInicio, anioFin;
 
                 while (true) {
-                    anioFin = Validaciones::ingresarAnio("Ingrese el año de fin (0001 a 2024): ");
-                    anioInicio = Validaciones::ingresarAnio("Ingrese el año de inicio (0001 a 2024): ");
+                    anioFin = Validaciones::ingresarAnio("Ingrese el año de fin (desde 1900 hasta 2100): ");
+                    anioInicio = Validaciones::ingresarAnio("Ingrese el año de inicio (desde 1900 hasta 2100): ");
 
                     // Validar que el año final sea mayor al inicial
                     if (anioFin > anioInicio) {

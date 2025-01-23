@@ -414,12 +414,12 @@ int Validaciones::ingresarAnio(const string& mensaje) {
         // Validar que el año sea numérico y tenga 4 dígitos
         try {
             anio = stoi(input);  // Convertimos la entrada a entero
-            if (anio < 1 || anio > 2024) {
+            if (anio < 1900 || anio > 2100) {
                 throw invalid_argument("Año fuera de rango.");
             }
             break;  // Salimos del bucle si el año es válido
         } catch (const invalid_argument& e) {
-            cout << "Error: Ingrese un año válido de 4 dígitos entre 0001 y 2024." << endl;
+            cout << "Error: Ingrese un año válido de 4 dígitos entre 1900 y 2100." << endl;
         } catch (const out_of_range& e) {
             cout << "Error: El año ingresado está fuera de rango." << endl;
         }
