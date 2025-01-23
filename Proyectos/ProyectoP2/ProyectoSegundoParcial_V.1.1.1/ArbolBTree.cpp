@@ -448,7 +448,7 @@ void ArbolBTree::crearBackup(const std::string& nombreArchivo) {
         BackupManager::crearCarpetaSiNoExiste(carpetaBackup);
 
         // Crear la ruta completa para el archivo de backup dentro de la carpeta "backup"
-        std::string rutaCompleta = carpetaBackup + "\\" + nombreArchivo;
+        std::string rutaCompleta = carpetaBackup + "\\" + nombreArchivo + ".txt"; // Agregar la extensión .txt
 
         // Crear el archivo de backup
         std::ofstream archivo(rutaCompleta);
