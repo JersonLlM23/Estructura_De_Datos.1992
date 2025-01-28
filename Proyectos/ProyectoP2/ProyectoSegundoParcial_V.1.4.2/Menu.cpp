@@ -306,9 +306,14 @@ void mostrarMenu(ArbolBTree& arbol) {
                 const std::string inputFile = "libros.txt";
                 char caracter;
                 cout << "Ingrese el caracter por el cual buscar autores: ";
-                cin >> caracter;
-                buscarAutoresPorCaracter(inputFile, caracter);   
-                
+                std::string input = Validaciones::leerSoloCaracteres();
+                if (!input.empty()) {
+                    caracter = toupper(input[0]); // Convertir el primer carácter a mayúscula
+                    buscarAutoresPorCaracter(inputFile, caracter);
+                } else {
+                    cout << "Error: No se ingresó un carácter válido.\n";
+                }
+
             } else if (opciones[seleccion] == "Salir") {
                 cout << "Saliendo...\n";
                 break;

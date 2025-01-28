@@ -396,17 +396,19 @@ void buscarAutoresPorCaracter(const std::string& rutaArchivo, char caracter) {
             return get<1>(a) < get<1>(b); // Ordenar por nombre del autor
         });
 
+        caracter = toupper(caracter); // Convertir el carácter a mayúscula
+
         auto it = lower_bound(registros.begin(), registros.end(), caracter, [](const auto& registro, char caracter) {
-            return get<1>(registro)[0] < caracter;
+            return toupper(get<1>(registro)[0]) < caracter;
         });
 
-        if (it == registros.end() || toupper(get<1>(*it)[0]) != toupper(caracter)) {
+        if (it == registros.end() || toupper(get<1>(*it)[0]) != caracter) {
             cout << "No se encontraron autores que comiencen con la letra: " << caracter << "." << endl;
             return;
         }
 
         imprimirCabecera();
-        while (it != registros.end() && toupper(get<1>(*it)[0]) == toupper(caracter)) {
+        while (it != registros.end() && toupper(get<1>(*it)[0]) == caracter) {
             cout << left;
             cout << setw(40) << get<0>(*it)
                 << setw(25) << get<1>(*it)

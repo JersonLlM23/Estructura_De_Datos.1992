@@ -478,3 +478,24 @@ bool Validaciones::contieneLetra(const std::string& titulo) {
     }
     return false;
 }
+
+std::string Validaciones::leerSoloCaracteres() {
+    try {
+        std::string input;
+        char ch;
+        while ((ch = _getch()) != '\r') { // Leer hasta que se presione Enter
+            if (isalpha(ch) && input.empty()) { // Permitir solo un carácter alfabético
+                std::cout << ch;
+                input += ch;
+            } else if (ch == '\b' && !input.empty()) { // Permitir backspace
+                std::cout << "\b \b";
+                input.pop_back();
+            }
+        }
+        std::cout << std::endl;
+        return input;
+    } catch (const std::exception& e) {
+        std::cerr << "Error al leer solo caracteres: " << e.what() << std::endl;
+        return "";
+    }
+}

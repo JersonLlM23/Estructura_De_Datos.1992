@@ -37,7 +37,7 @@ public:
     static string leerSoloNumeros(); // Declaration for leerSoloNumeros
     static string leerIsbnIsni(); // Declaration for leerIsbnIsni
     static bool contieneLetra(const std::string& titulo); // Declaration for contieneLetra
-
+    static std::string leerSoloCaracteres(); // Declaración de la nueva función
 private:
     static int diasEnMes(int mes, int anio);
     static bool esBisiesto(int anio);
